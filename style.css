@@ -1,0 +1,157 @@
+/* General Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Press Start 2P', cursive;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 4rem;
+  background: #1a1a1a;
+  color: white;
+}
+
+h1 {
+  font-size: 3.5rem;
+}
+
+/* Splash Screen */
+#splash-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: black;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  animation: fadeOut 1s ease-out forwards;
+}
+
+#splash-screen h1 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: yellow;
+}
+
+#start-game {
+  padding: 10px 20px;
+  background: #ffcc00;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  animation: pulse 1s infinite alternate;
+}
+
+/* Game Wrapper */
+.hidden {
+  display: none;
+}
+
+#game-wrapper {
+  display: flex;
+  align-items: center;
+}
+
+#score-board {
+  margin-left: 2rem;
+  padding: 2rem;
+  width: 18rem;
+  background: #333;
+  border-radius: 10px;
+  text-align: center;
+}
+
+/* Card Styling */
+#card-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+}
+
+.card {
+  width: 100px;
+  height: 140px;
+  border-radius: 8px;
+  perspective: 1000px;
+  cursor: pointer;
+  position: relative;
+  transform: scale(1);
+  transition: transform 0.2s;
+}
+
+.card:hover {
+  transform: scale(1.05);
+}
+
+.inner-card {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+.flip .inner-card {
+  transform: rotateY(180deg);
+}
+
+.front-card,
+.back-card {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  backface-visibility: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  border-radius: 8px;
+}
+
+.front-card {
+  background-color: red;
+}
+
+.back-card {
+  background-color: green;
+  transform: rotateY(180deg);
+}
+
+/* Game Modal */
+#game-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+}
+
+.modal-content {
+  background: #222;
+  padding: 2rem;
+  border-radius: 10px;
+  text-align: center;
+}
+
+#retry {
+  padding: 10px 20px;
+  background: #ff0000;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+}
