@@ -1,4 +1,3 @@
-/* General Styles */
 * {
   margin: 0;
   padding: 0;
@@ -16,13 +15,14 @@ body {
   gap: 4rem;
   background: #1a1a1a;
   color: white;
+  padding: 1rem;
+  text-align: center;
 }
 
 h1 {
   font-size: 3.5rem;
 }
 
-/* Splash Screen */
 #splash-screen {
   position: fixed;
   top: 0;
@@ -35,6 +35,7 @@ h1 {
   justify-content: center;
   align-items: center;
   animation: fadeOut 1s ease-out forwards;
+  padding: 1rem;
 }
 
 #splash-screen h1 {
@@ -52,35 +53,41 @@ h1 {
   animation: pulse 1s infinite alternate;
 }
 
-/* Game Wrapper */
 .hidden {
   display: none;
 }
 
 #game-wrapper {
   display: flex;
+  flex-direction: column;
   align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  width: 100%;
+  max-width: 1200px;
 }
 
 #score-board {
-  margin-left: 2rem;
   padding: 2rem;
-  width: 18rem;
   background: #333;
   border-radius: 10px;
   text-align: center;
+  flex: 1;
+  min-width: 250px;
 }
 
-/* Card Styling */
 #card-container {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 1rem;
+  width: 100%;
+  max-width: 500px;
 }
 
 .card {
-  width: 100px;
-  height: 140px;
+  width: 100%;
+  aspect-ratio: 5 / 7;
   border-radius: 8px;
   perspective: 1000px;
   cursor: pointer;
@@ -114,7 +121,7 @@ h1 {
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 2rem;
+  font-size: 1.5rem;
   border-radius: 8px;
 }
 
@@ -127,7 +134,6 @@ h1 {
   transform: rotateY(180deg);
 }
 
-/* Game Modal */
 #game-modal {
   position: fixed;
   top: 0;
@@ -139,6 +145,7 @@ h1 {
   align-items: center;
   background: rgba(0, 0, 0, 0.8);
   color: white;
+  padding: 1rem;
 }
 
 .modal-content {
@@ -146,6 +153,8 @@ h1 {
   padding: 2rem;
   border-radius: 10px;
   text-align: center;
+  width: 100%;
+  max-width: 400px;
 }
 
 #retry {
@@ -154,4 +163,50 @@ h1 {
   border: none;
   cursor: pointer;
   font-size: 1rem;
+}
+
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2rem;
+  }
+
+  #splash-screen h1 {
+    font-size: 1.5rem;
+  }
+
+  #start-game,
+  #retry {
+    font-size: 0.9rem;
+    padding: 8px 16px;
+  }
+
+  .front-card,
+  .back-card {
+    font-size: 1.2rem;
+  }
+
+  #card-container {
+    max-width: 400px;
+    gap: 0.75rem;
+  }
+
+  #score-board {
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 480px) {
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  .front-card,
+  .back-card {
+    font-size: 1rem;
+  }
+
+  #card-container {
+    max-width: 300px;
+    gap: 0.5rem;
+  }
 }
